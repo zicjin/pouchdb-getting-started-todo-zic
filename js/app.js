@@ -1,11 +1,7 @@
 (function() {
   var ENTER_KEY = 13;
   var newTodoDom = document.getElementById('new-todo');
-  var syncDom = document.getElementById('sync-wrapper');
   var db = new PouchDB('todos');
-
-  // Replace with remote instance, this just replicates to another local instance.
-  var remoteCouch = false;
 
   newTodoDom.addEventListener('keypress', function(event) {
     if (event.keyCode === ENTER_KEY) {
@@ -100,6 +96,8 @@
     return li;
   }
 
+  var syncDom = document.getElementById('sync-wrapper');
+  var remoteCouch = 'http://admin:pidan@couchdb.socode.pro:5984/todos';
   if (remoteCouch) {
     syncDom.setAttribute('data-sync-state', 'syncing');
     function syncError() {
