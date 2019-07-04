@@ -96,9 +96,9 @@
     return li;
   }
 
-  var syncDom = document.getElementById('sync-wrapper');
   var remoteCouch = 'http://admin:pidan@couchdb.socode.pro:5984/todos';
   if (remoteCouch) {
+    var syncDom = document.getElementById('sync-wrapper');
     syncDom.setAttribute('data-sync-state', 'syncing');
     function syncError() {
       syncDom.setAttribute('data-sync-state', 'error');
